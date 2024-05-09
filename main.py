@@ -6,6 +6,7 @@ from typing import Annotated
 
 from models.item import Item
 from models.offer import Offer
+from models.image import Image
 
 app = FastAPI()
 
@@ -65,7 +66,6 @@ async def update_item(
 """
 
 # Attributes with lists of submodels
-"""
 @app.put("/items/{id}")
 async def update_item(
   id: Annotated[int, Path()],
@@ -73,11 +73,13 @@ async def update_item(
 ):
   response = {"id": id, "item": item}
   return response
-"""
 
 # Deeply nested models
-"""
 @app.post("/offers")
 async def create_offer(offer: Annotated[Offer, Body(embed = True)]):
   return offer
-"""
+
+# Bodies of pure lists
+@app.post("/images/bulk")
+async def create_images(images: list[Image]):
+  return images
