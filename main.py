@@ -5,6 +5,7 @@ from fastapi import Body
 from typing import Annotated
 
 from models.item import Item
+from models.offer import Offer
 
 app = FastAPI()
 
@@ -72,4 +73,11 @@ async def update_item(
 ):
   response = {"id": id, "item": item}
   return response
+"""
+
+# Deeply nested models
+"""
+@app.post("/offers")
+async def create_offer(offer: Annotated[Offer, Body(embed = True)]):
+  return offer
 """
