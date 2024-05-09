@@ -40,3 +40,14 @@ async def update_item(
   response = {"id": id, "item": item}
   return response
 """
+
+# Define a submodel
+"""
+@app.put("/items/{id}")
+async def update_item(
+  id: Annotated[int, Path()],
+  item: Annotated[Item, Body()]
+):
+  response = {"id": id, "item": item}
+  return response
+"""
