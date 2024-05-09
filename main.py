@@ -83,3 +83,8 @@ async def create_offer(offer: Annotated[Offer, Body(embed = True)]):
 @app.post("/images/bulk")
 async def create_images(images: list[Image]):
   return images
+
+# Bodies of arbitrary dicts
+@app.post("/weights/bukl")
+def create_weights(weights: dict[int, float]):
+  return weights
