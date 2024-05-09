@@ -62,3 +62,14 @@ async def update_item(
   response = {"id": id, "item": item}
   return response
 """
+
+# Attributes with lists of submodels
+"""
+@app.put("/items/{id}")
+async def update_item(
+  id: Annotated[int, Path()],
+  item: Annotated[Item, Body()]
+):
+  response = {"id": id, "item": item}
+  return response
+"""
